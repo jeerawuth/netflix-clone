@@ -142,34 +142,10 @@ export default function Navbar() {
             <li>
               <Link to="/mylist">รายการของฉัน</Link>
             </li>
-            <li className="langMenu" tabIndex={0} style={{position:'relative'}} ref={langMenuRef}>
-              <span style={{cursor:'pointer', userSelect:'none'}} onClick={toggleLangDropdown}>
-                เลือกดูตามภาษา ▾
-              </span>
-              {showLangDropdown && (
-                <div className="langDropdown" style={{padding:'18px 24px', minWidth:360}}>
-                  <div style={{marginBottom:10, color:'#aaa'}}>เลือกตัวเลือกที่ต้องการใช้งาน</div>
-                  <div style={{display:'flex', gap:12, flexWrap:'wrap', alignItems:'center'}}>
-                    <select style={{padding:'6px 18px', borderRadius:4, border:'1px solid #444', background:'#232323', color:'#fff'}} defaultValue={lang} onChange={e=>handleLangChange(e.target.value)}>
-                      <option value="th-TH">ภาษาต้นฉบับ</option>
-                      <option value="en-US">อังกฤษ</option>
-                      <option value="ja-JP">ญี่ปุ่น</option>
-                      <option value="ko-KR">เกาหลี</option>
-                    </select>
-                    <select style={{padding:'6px 18px', borderRadius:4, border:'1px solid #444', background:'#232323', color:'#fff'}} defaultValue="en-US">
-                      <option value="th-TH">อัดเสียงไทย</option>
-                      <option value="en-US">อัดเสียงอังกฤษ</option>
-                      <option value="ja-JP">อัดเสียงญี่ปุ่น</option>
-                      <option value="ko-KR">อัดเสียงเกาหลี</option>
-                    </select>
-                    <select style={{padding:'6px 18px', borderRadius:4, border:'1px solid #444', background:'#232323', color:'#fff'}} defaultValue="recommend">
-                      <option value="recommend">เนื้อหาแนะนำสำหรับคุณ</option>
-                      <option value="trend">มาใหม่และกำลังฮิต</option>
-                      <option value="mylist">รายการของฉัน</option>
-                    </select>
-                  </div>
-                </div>
-              )}
+            <li className={styles.menuItem}>
+              <Link to="/filter-language" style={{cursor:'pointer', color:'#fff', padding:'6px 18px', borderRadius:4, textDecoration:'none', fontWeight:500}}>
+                เลือกดูตามภาษา
+              </Link>
             </li>
           </ul>
           <div className={styles.searchWrap}>

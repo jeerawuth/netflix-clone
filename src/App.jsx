@@ -8,6 +8,7 @@ import Movies from './pages/Movies';
 import Tv from './pages/Tv';
 import Trending from './pages/Trending';
 import MyList from './pages/MyList';
+import FilterByLanguage from './pages/FilterByLanguage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path="/tv" element={<Tv />} />
       <Route path="/trending" element={<Trending />} />
       <Route path="/mylist" element={<MyList />} />
+      <Route path="/filter-language" element={<FilterByLanguage />} />
     </Routes>
   );
 }

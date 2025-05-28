@@ -18,12 +18,12 @@ export default function MyList() {
   };
 
   return (
-    <div className={styles.home}>
+    <div className={styles.home} style={{background:'#181818', minHeight:'100vh', width:'100vw', position:'relative'}}>
       <Navbar />
-      <div style={{maxWidth:1280,width:'100vw',minHeight:'100vh',margin:'0 auto',paddingTop:100,paddingBottom:60,position:'relative',background:'transparent'}}>
-        <h2 style={{color:'#fff',margin:'80px 0 18px',textAlign:'left'}}>รายการของฉัน</h2>
+      <div style={{maxWidth:1280, margin:'0 auto', paddingTop:100, paddingBottom:60}}>
+        <h2 style={{color:'#fff', margin:'80px 0 18px', textAlign:'left'}}>รายการของฉัน</h2>
         {items.length === 0 ? (
-          <div style={{color:'#fff',padding:40}}>ยังไม่มีรายการที่คุณบันทึกไว้</div>
+          <div style={{color:'#fff', padding:40}}>ยังไม่มีรายการที่คุณบันทึกไว้</div>
         ) : (
           <Row title="" movies={items} onMyListChange={handleMyListChange} />
         )}
