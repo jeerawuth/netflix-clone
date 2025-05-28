@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar/Navbar';
+import styles from './Home/Home.module.css';
 import Row from '../components/Row/Row';
 import { fetchTrending } from '../api/tmdb';
 
@@ -27,10 +28,10 @@ export default function Trending() {
   }, []);
 
   return (
-    <div style={{background:'#111',minHeight:'100vh',paddingTop:70}}>
+    <div className={styles.home} style={{background:'#111',minHeight:'100vh',width:'100vw',position:'relative'}}>
       <Navbar />
-      <div style={{maxWidth:1280,margin:'0 auto'}}>
-        <h2 style={{color:'#fff',margin:'36px 0 18px'}}>มาใหม่และกำลังฮิต</h2>
+      <div style={{maxWidth:1280,margin:'0 auto',paddingTop:100,paddingBottom:60}}>
+        <h2 style={{color:'#fff',margin:'80px 0 18px',textAlign:'left'}}>มาใหม่และกำลังฮิต</h2>
         {loading ? (
           <div style={{color:'#fff',padding:40}}>Loading...</div>
         ) : (

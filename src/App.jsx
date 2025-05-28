@@ -7,6 +7,7 @@ import Search from './pages/Search/Search';
 import Movies from './pages/Movies';
 import Tv from './pages/Tv';
 import Trending from './pages/Trending';
+import MyList from './pages/MyList';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/movies" element={<Movies />} />
       <Route path="/tv" element={<Tv />} />
       <Route path="/trending" element={<Trending />} />
+      <Route path="/mylist" element={<MyList />} />
     </Routes>
   );
 }
