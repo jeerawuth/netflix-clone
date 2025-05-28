@@ -44,7 +44,9 @@ export default function Home() {
   return (
     <div className={styles.home}>
       <Navbar />
-      <Banner />
+      <div style={{marginTop: 64}}>
+        <Banner />
+      </div>
       {loading ? (
         <div style={{ color: '#fff', padding: 40 }}>Loading...</div>
       ) : (

@@ -109,21 +109,47 @@
   display: inline-block;
 }
 .profileDropdown {
-  position: absolute;
-  top: 120%;
-  right: 0;
-  min-width: 180px;
-  background: #181818;
-  border-radius: 8px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.22);
-  z-index: 1000;
-  padding: 10px 0;
-  display: none;
+  border: none !important;
+  outline: none !important;
+  display: flex;
   flex-direction: column;
-  align-items: stretch;
   animation: fadeInProfile 0.18s;
   pointer-events: auto;
 }
+
+.profileDropdown:focus,
+.profileDropdown:active,
+.profileDropdown:focus-visible {
+  outline: none !important;
+  border: none !important;
+}
+
+.profile {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.profile:focus,
+.profile:active,
+.profile:hover {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+img[alt="avatar"] {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+img[alt="avatar"]:focus,
+img[alt="avatar"]:active,
+img[alt="avatar"]:hover {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
 .profileWrap:hover .profileDropdown,
 .profileWrap:focus-within .profileDropdown,
 .profileDropdown:hover {
@@ -163,7 +189,86 @@
   flex: 1;
   max-width: 340px;
   display: flex;
-  align-items: center;
+}
+
+/* Responsive: Hide main menu, show only avatar & search on small screens */
+.menuToggle {
+  display: none;
+}
+@media (max-width: 600px) {
+  .menuToggle {
+    display: block;
+    position: absolute;
+    right: 56px;
+    top: 12px;
+    background: none;
+    border: none;
+    font-size: 2.1rem;
+    color: #fff;
+    z-index: 1101;
+    cursor: pointer;
+  }
+
+  .menu {
+    display: none !important;
+  }
+  .menu.menuOpen {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    left: 50%;
+    top: 16px;
+    transform: translateX(-50%);
+    width: 90vw;
+    max-width: 420px;
+    background: rgba(10,10,10,0.98);
+    z-index: 1000;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 32px 0 18px 0;
+    gap: 0;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    height: auto;
+  }
+  .menu.menuOpen li {
+    width: 100%;
+    text-align: center;
+    padding: 18px 0;
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: #fff;
+    border-bottom: 1px solid #232323;
+    background: none;
+  }
+  .menu.menuOpen li:last-child {
+    border-bottom: none;
+  }
+  .navbar {
+    padding: 12px 10px;
+    justify-content: flex-start;
+    min-width: 0;
+    position: relative;
+  }
+  .logo {
+    font-size: 1.3rem;
+    padding-right: 0;
+    margin-right: 0;
+  }
+  .searchWrap {
+    margin: 0 4px;
+    max-width: 120px;
+    flex: unset;
+  }
+  .profileWrap {
+    margin-left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
 }
 
 .searchInput {

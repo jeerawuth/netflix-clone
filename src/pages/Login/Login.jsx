@@ -22,19 +22,64 @@ export default function Login() {
 
   return (
     <div style={{position:'relative',minHeight:'100dvh',width:'100vw',overflow:'hidden'}}>
-      {/* BG image */}
+      {/* BG mosaic */}
       <div style={{
-        position:'fixed',
-        inset:0,
-        zIndex:-1,
-        width:'100vw',
-        height:'100dvh',
-        backgroundImage: `url('https://assets.nflxext.com/ffe/siteui/vlv3/9e8d7b4c-5a7b-4e8d-ae7b-0e6b8c4b7a7a/2e7e8f3e-9e4e-4e2c-bd3f-0e3e2e2c6e16/TH-th-20240513-popsignuptwoweeks-perspective_alpha_website_large.jpg')`,
-        backgroundSize:'cover',
-        backgroundPosition:'center',
-        filter:'brightness(0.6) blur(1px)',
-        transition:'all 0.3s',
-      }} />
+        position: 'fixed',
+        left: '-30vw',
+        top: '-30vh',
+        zIndex: -2,
+        width: '160vw',
+        height: '160vh',
+        overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+        transform: 'perspective(1200px) rotateY(-18deg)',
+        transition: 'transform 0.7s cubic-bezier(.5,1.5,.5,1)',
+      }}>
+        {/* mock poster url array */}
+        {Array.from({length: 12}).map((_, rowIdx) => (
+          <div key={rowIdx} style={{display: 'flex', flexDirection: 'row', width: '160vw', height: '13.34vh', flexWrap: 'nowrap'}}>
+            {Array.from({length: 12}).map((_, colIdx) => {
+              // poster pool
+              const posters = [
+                '/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg',
+                '/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg',
+                '/6KErczPBROQty7QoIsaa6wJYXZi.jpg',
+                '/vRQnzOn4HjIMX4LBq9nHhFXbsSu.jpg',
+                '/hTExot1sfn7dHZjGrk0Aiwpntxt.jpg',
+                '/aJn9XeesqsrSLKcHfHP4u5985hn.jpg',
+                '/xBHvZcjRiWyobQ9kxBhO6B2dtRI.jpg',
+                '/riYInlsq2kf1AWoGm80JQW5dLKp.jpg',
+                '/xBHvZcjRiWyobQ9kxBhO6B2dtRI.jpg',
+                '/hTExot1sfn7dHZjGrk0Aiwpntxt.jpg',
+                '/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg',
+                '/vRQnzOn4HjIMX4LBq9nHhFXbsSu.jpg',
+              ];
+              const poster = posters[(rowIdx * 10 + colIdx) % posters.length];
+              return (
+                <img
+                  key={colIdx}
+                  src={`https://image.tmdb.org/t/p/w500${poster}`}
+                  alt="poster"
+                  style={{
+                    width: '13.34vw',
+                    height: '13.34vh',
+                    objectFit: 'cover',
+                    filter: 'brightness(0.8)',
+                    opacity: 0.88,
+                    margin: 0,
+                    padding: 0,
+                    border: 'none',
+                    display: 'block',
+                  }}
+                />
+              );
+            })}
+          </div>
+        ))}
+        {/* overlay */}
+        <div style={{position:'fixed',left:0,top:0,right:0,bottom:0,background:'rgba(0,0,0,0.58)',zIndex:1, pointerEvents:'none'}} />
+      </div>
       <div style={{
         minHeight:'100dvh',
         display:'flex',
