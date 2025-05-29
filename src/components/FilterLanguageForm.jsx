@@ -1,91 +1,97 @@
 import React from 'react';
+import CustomDropdown from './CustomDropdown';
+import styles from './FilterLanguageForm.module.css';
 
 export default function FilterLanguageForm({ filter, setFilter, sort, setSort }) {
   return (
-    <div style={{
-      background: '#181818',
-      borderRadius: 8,
-      padding: '18px 24px',
-      margin: '0 0 32px 0',
-      display: 'flex',
-      flexDirection: 'row',
-      gap: 24,
-      alignItems: 'flex-start',
-      width: '100%',
-      boxShadow: '0 2px 16px rgba(0,0,0,0.22)',
-    }}>
-      <div style={{marginBottom: 6}}>
-        <span style={{fontSize: '1.7rem', fontWeight: 700, color: '#fff', letterSpacing: '-1px', marginRight: 16}}>เลือกดูตามภาษา</span>
-        <span style={{fontSize: '1.02rem', color: '#aaa', fontWeight: 400, marginLeft: 6}}>เลือกตัวเลือกที่ต้องการใช้งาน</span>
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <span className={styles.title}>เลือกดูตามภาษา</span>
+        <span className={styles.subtitle}>เลือกตัวเลือกที่ต้องการใช้งาน</span>
       </div>
-      <div style={{display:'flex', flexDirection:'row', alignItems:'center', gap: 16, marginTop: 4}}>
+      <div className={styles.row}>
         {/* ประเภทภาษา */}
-        <div style={{display:'flex', alignItems:'center', gap:6}}>
-          <select style={{padding:'7px 18px', borderRadius:4, border:'1px solid #444', background:'#232323', color:'#fff', fontWeight:600, minWidth:140}} value={filter.type} onChange={e=>setFilter(f => ({...f, type: e.target.value}))}>
-            <option value="original">ภาษาต้นฉบับ</option>
-            <option value="audio">เสียงพากย์</option>
-            <option value="subtitle">คำบรรยาย</option>
-          </select>
+        <div className={styles.group}>
+          <CustomDropdown
+            className={styles.select}
+            options={[
+              { value: 'original', label: 'ภาษาต้นฉบับ' },
+              { value: 'audio', label: 'เสียงพากย์' },
+              { value: 'subtitle', label: 'คำบรรยาย' },
+            ]}
+            value={filter.type}
+            onChange={val => setFilter(f => ({ ...f, type: val }))}
+          />
         </div>
         {/* ภาษา */}
-        <div style={{display:'flex', alignItems:'center', gap:6}}>
-          <select style={{padding:'7px 18px', borderRadius:4, border:'1px solid #444', background:'#232323', color:'#fff', minWidth:180}} value={filter.language} onChange={e=>setFilter(f => ({...f, language: e.target.value}))}>
-            <option value="en">อังกฤษ</option>
-            <option value="ko">เกาหลี</option>
-            <option value="zh">จีนกลาง</option>
-            <option value="ja">ญี่ปุ่น</option>
-            <option value="de">เยอรมัน</option>
-            <option value="es">สเปน</option>
-            <option value="fr">ฝรั่งเศส</option>
-            <option value="it">อิตาลี</option>
-            <option value="ru">รัสเซีย</option>
-            <option value="pt">โปรตุเกส</option>
-            <option value="nl">ดัตช์</option>
-            <option value="sv">สวีเดน</option>
-            <option value="fi">ฟินแลนด์</option>
-            <option value="pl">โปแลนด์</option>
-            <option value="tr">ตุรกี</option>
-            <option value="th">ไทย</option>
-            <option value="ms">มาเลย์</option>
-            <option value="id">อินโดนีเซีย</option>
-            <option value="vi">เวียดนาม</option>
-            <option value="ar">อาหรับ</option>
-            <option value="he">ฮิบรู</option>
-            <option value="hi">ฮินดี</option>
-            <option value="ta">ทมิฬ</option>
-            <option value="te">เตลูกู</option>
-            <option value="bn">เบงกาลี</option>
-            <option value="uk">ยูเครน</option>
-            <option value="cs">เช็ก</option>
-            <option value="hu">ฮังการี</option>
-            <option value="el">กรีก</option>
-            <option value="da">เดนมาร์ก</option>
-            <option value="no">นอร์เวย์</option>
-            <option value="ro">โรมาเนีย</option>
-            <option value="bg">บัลแกเรีย</option>
-            <option value="hr">โครเอเชีย</option>
-            <option value="sk">สโลวัก</option>
-            <option value="sl">สโลวีเนีย</option>
-            <option value="et">เอสโตเนีย</option>
-            <option value="lt">ลิทัวเนีย</option>
-            <option value="lv">ลัตเวีย</option>
-            <option value="sr">เซอร์เบีย</option>
-            <option value="ca">คาตาลัน</option>
-            <option value="fa">เปอร์เซีย</option>
-            <option value="ur">อูรดู</option>
-            <option value="sw">สวาฮีลี</option>
-            <option value="zu">ซูลู</option>
-          </select>
+        <div className={styles.group}>
+          <CustomDropdown
+            className={`${styles.select} ${styles.lang}`}
+            options={[
+              { value: 'en', label: 'อังกฤษ' },
+              { value: 'ko', label: 'เกาหลี' },
+              { value: 'zh', label: 'จีนกลาง' },
+              { value: 'ja', label: 'ญี่ปุ่น' },
+              { value: 'de', label: 'เยอรมัน' },
+              { value: 'es', label: 'สเปน' },
+              { value: 'fr', label: 'ฝรั่งเศส' },
+              { value: 'it', label: 'อิตาลี' },
+              { value: 'ru', label: 'รัสเซีย' },
+              { value: 'pt', label: 'โปรตุเกส' },
+              { value: 'nl', label: 'ดัตช์' },
+              { value: 'sv', label: 'สวีเดน' },
+              { value: 'fi', label: 'ฟินแลนด์' },
+              { value: 'pl', label: 'โปแลนด์' },
+              { value: 'tr', label: 'ตุรกี' },
+              { value: 'th', label: 'ไทย' },
+              { value: 'ms', label: 'มาเลย์' },
+              { value: 'id', label: 'อินโดนีเซีย' },
+              { value: 'vi', label: 'เวียดนาม' },
+              { value: 'ar', label: 'อาหรับ' },
+              { value: 'he', label: 'ฮิบรู' },
+              { value: 'hi', label: 'ฮินดี' },
+              { value: 'ta', label: 'ทมิฬ' },
+              { value: 'te', label: 'เตลูกู' },
+              { value: 'bn', label: 'เบงกาลี' },
+              { value: 'uk', label: 'ยูเครน' },
+              { value: 'cs', label: 'เช็ก' },
+              { value: 'hu', label: 'ฮังการี' },
+              { value: 'el', label: 'กรีก' },
+              { value: 'da', label: 'เดนมาร์ก' },
+              { value: 'no', label: 'นอร์เวย์' },
+              { value: 'ro', label: 'โรมาเนีย' },
+              { value: 'bg', label: 'บัลแกเรีย' },
+              { value: 'hr', label: 'โครเอเชีย' },
+              { value: 'sk', label: 'สโลวัก' },
+              { value: 'sl', label: 'สโลวีเนีย' },
+              { value: 'et', label: 'เอสโตเนีย' },
+              { value: 'lt', label: 'ลิทัวเนีย' },
+              { value: 'lv', label: 'ลัตเวีย' },
+              { value: 'sr', label: 'เซอร์เบีย' },
+              { value: 'ca', label: 'คาตาลัน' },
+              { value: 'fa', label: 'เปอร์เซีย' },
+              { value: 'ur', label: 'อูรดู' },
+              { value: 'sw', label: 'สวาฮีลี' },
+              { value: 'zu', label: 'ซูลู' },
+            ]}
+            value={filter.language}
+            onChange={val => setFilter(f => ({ ...f, language: val }))}
+          />
         </div>
         {/* เรียงตาม */}
-        <div style={{display:'flex', alignItems:'center', gap:6}}>
-          <span style={{color:'#fff', fontWeight:500, fontSize:'1rem'}}>เรียงตาม</span>
-          <select style={{padding:'7px 18px', borderRadius:4, border:'1px solid #444', background:'#232323', color:'#fff', minWidth:160}} value={sort} onChange={e => setSort(e.target.value)}>
-            <option value="recommend">เนื้อหาแนะนำสำหรับคุณ</option>
-            <option value="year">ปีเปิดตัว</option>
-            <option value="az">A-Z</option>
-            <option value="za">Z-A</option>
-          </select>
+        <div className={styles.group}>
+          <span className={styles.label}>เรียงตาม</span>
+          <CustomDropdown
+            className={`${styles.select} ${styles.sort}`}
+            options={[
+              { value: 'recommend', label: 'เนื้อหาแนะนำสำหรับคุณ' },
+              { value: 'year', label: 'ปีเปิดตัว' },
+              { value: 'az', label: 'A-Z' },
+              { value: 'za', label: 'Z-A' },
+            ]}
+            value={sort}
+            onChange={val => setSort(val)}
+          />
         </div>
       </div>
     </div>

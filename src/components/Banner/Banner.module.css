@@ -12,6 +12,7 @@
   will-change: background-image;
   display: flex;
   align-items: flex-end;
+  z-index: 0;
 }
 .content {
   padding: 60px 40px 120px 40px;

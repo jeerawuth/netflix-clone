@@ -136,7 +136,6 @@ export default function Navbar() {
         >
           {showMobileMenu ? '✕' : '≡'}
         </button>
-
         <div style={{display:'flex',alignItems:'center',flex:1,minWidth:0}}>
           <ul className={styles.menu + (showMobileMenu ? ' ' + styles.menuOpen : '')}>
             <li onClick={() => setShowMobileMenu(false)}>
@@ -237,8 +236,7 @@ export default function Navbar() {
                 type="button"
                 onClick={() => navigate('/login')}
               >
-                <span className={styles.profileIcon} role="img" aria-label="login">🔑</span>
-                <span style={{color:'#fff',fontWeight:500,marginLeft:8}}>เข้าสู่ระบบ</span>
+                <span style={{color:'#fff',fontWeight:500,whiteSpace:'nowrap'}}>เข้าสู่ระบบ</span>
               </button>
             )}
           </div>

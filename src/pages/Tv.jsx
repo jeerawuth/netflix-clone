@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar/Navbar';
-import styles from './Home/Home.module.css';
+import styles from './Tv.module.css';
 import Row from '../components/Row/Row';
 import { fetchMovies } from '../api/tmdb';
 
@@ -28,12 +28,12 @@ export default function Tv() {
   }, []);
 
   return (
-    <div className={styles.home} style={{background:'#111',minHeight:'100vh',width:'100vw',position:'relative'}}>
+    <div className={styles.tvContainer}>
       <Navbar />
-      <div style={{maxWidth:1280,margin:'0 auto',paddingTop:100,paddingBottom:60}}>
-        <h2 style={{color:'#fff',margin:'80px 0 18px',textAlign:'left'}}>รายการทีวียอดนิยม</h2>
+      <div className={styles.tvContent}>
+        <h2 className={styles.heading}>รายการทีวียอดนิยม</h2>
         {loading ? (
-          <div style={{color:'#fff',padding:40}}>Loading...</div>
+          <div className={styles.status}>Loading...</div>
         ) : (
           <Row title="" movies={shows} />
         )}

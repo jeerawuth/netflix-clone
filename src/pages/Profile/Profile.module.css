@@ -5,7 +5,21 @@
   width: 100vw;
   position: relative;
   padding: 0;
+  padding-top: 10px;
 }
+
+.profileContent {
+  max-width: 480px;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+
+@media (max-width: 600px) {
+  .profileContent {
+    padding-top: 80px;
+  }
+}
+
 .heading {
   font-size: 2rem;
   margin-bottom: 24px;

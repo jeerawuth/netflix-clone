@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar/Navbar';
-import styles from '../pages/Home/Home.module.css';
+import styles from './MyList.module.css';
 import Row from '../components/Row/Row';
 
 export default function MyList() {
@@ -18,12 +18,14 @@ export default function MyList() {
   };
 
   return (
-    <div className={styles.home} style={{background:'#181818', minHeight:'100vh', width:'100vw', position:'relative'}}>
+    <div className={styles.myListContainer}>
       <Navbar />
-      <div style={{maxWidth:1280, margin:'0 auto', paddingTop:100, paddingBottom:60}}>
-        <h2 style={{color:'#fff', margin:'80px 0 18px', textAlign:'left'}}>รายการของฉัน</h2>
+      <div className={styles.myListContent}>
+        <h2 className={styles.heading}>รายการของฉัน</h2>
         {items.length === 0 ? (
-          <div style={{color:'#fff', padding:40}}>ยังไม่มีรายการที่คุณบันทึกไว้</div>
+          <div className={styles.status}>
+            ยังไม่มีรายการที่คุณบันทึกไว้
+          </div>
         ) : (
           <Row title="" movies={items} onMyListChange={handleMyListChange} />
         )}

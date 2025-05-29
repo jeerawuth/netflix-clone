@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import Row from '../components/Row/Row';
-import styles from './Home/Home.module.css';
+import styles from './FilterByLanguage.module.css';
 import { fetchMovies, fetchTrending } from '../api/tmdb';
 import FilterLanguageForm from '../components/FilterLanguageForm';
 
@@ -62,12 +62,12 @@ export default function FilterByLanguage() {
   });
 
   return (
-    <div className={styles.home} style={{background:'#111', minHeight:'100vh', width:'100vw', position:'relative'}}>
+    <div className={styles.filterByLangContainer}>
       <Navbar onFilterChange={setFilter} />
-      <div style={{maxWidth:1280, margin:'0 auto', paddingTop:100, paddingBottom:60}}>
+      <div className={styles.filterContent}>
         <FilterLanguageForm filter={filter} setFilter={setFilter} sort={sort} setSort={setSort} />
         {loading ? (
-          <div style={{color:'#fff', padding:40}}>Loading...</div>
+          <div className={styles.status}>Loading...</div>
         ) : (
           <Row
             title=""

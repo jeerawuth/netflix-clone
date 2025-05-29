@@ -41,7 +41,7 @@ export default function Profile() {
   return (
     <div className={styles.profileContainer}>
       <Navbar />
-      <div style={{maxWidth: 480, margin: '0 auto', paddingTop: 100}}>
+      <div className={styles.profileContent}>
         <h2 className={styles.heading}>โปรไฟล์</h2>
         <div style={{display:'flex', flexDirection:'column', alignItems:'center', marginBottom: 32}}>
           <img src={selectedImg} alt="profile" style={{width:90, height:90, borderRadius:'50%', marginBottom:16, border:'3px solid #e50914', background:'#222'}} />

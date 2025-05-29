@@ -2,17 +2,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 40px;
+  padding: 20px 32px;
   background: linear-gradient(180deg, rgba(0,0,0,0.9) 60%, rgba(0,0,0,0));
   position: fixed;
-  width: 100vw;
-  z-index: 10;
+  width: 100%;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  z-index: 10001;
 }
 .logo {
   color: #e50914;
   font-size: 2rem;
   font-weight: bold;
   letter-spacing: 2px;
+  transition: font-size 0.2s;
 }
 .menu {
   display: flex;
@@ -21,6 +25,7 @@
   color: #fff;
   font-size: 1.1rem;
   align-items: center;
+  transition: font-size 0.2s;
 }
 .menu > li {
   position: relative;
@@ -195,6 +200,35 @@ img[alt="avatar"]:hover {
 .menuToggle {
   display: none;
 }
+
+@media (max-width: 600px) {
+  .menuToggle {
+    display: block;
+    position: fixed;
+    right: 12px;
+    top: 12px;
+    background: none;
+    border: none;
+    font-size: 2.3rem;
+    color: #fff;
+    z-index: 5000;
+    cursor: pointer;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .logo {
+    font-size: 1.25rem;
+  }
+  .menu {
+    font-size: 0.98rem;
+    gap: 14px;
+  }
+}
+
 @media (max-width: 600px) {
   .menuToggle {
     display: block;

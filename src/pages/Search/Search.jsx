@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styles from './Search.module.css';
 import { searchMovies } from '../../api/tmdb';
 import Row from '../../components/Row/Row';
 
@@ -31,19 +32,19 @@ export default function Search() {
   }
 
   return (
-    <div style={{background:'#111',minHeight:'100vh',paddingTop:70}}>
-      <form onSubmit={handleSearch} style={{display:'flex',justifyContent:'center',padding:24}}>
+    <div className={styles.container}>
+      <form onSubmit={handleSearch} className={styles.form}>
         <input
           type="text"
           value={query}
           onChange={e=>setQuery(e.target.value)}
           placeholder="ค้นหาหนังหรือซีรีส์..."
-          style={{width:320,padding:10,borderRadius:4,border:'none',marginRight:12}}
+          className={styles.input}
         />
-        <button type="submit" style={{padding:'10px 28px',background:'#e50914',color:'#fff',border:'none',borderRadius:4}}>ค้นหา</button>
+        <button type="submit" className={styles.button}>ค้นหา</button>
       </form>
-      {loading && <div style={{color:'#fff',padding:40}}>Loading...</div>}
-      {error && <div style={{color:'#e50914',padding:40}}>{error}</div>}
+      {loading && <div className={styles.status}>Loading...</div>}
+      {error && <div className={`${styles.status} ${styles.error}`}>{error}</div>}
       {results.length > 0 && <Row title="ผลการค้นหา" movies={results} />}
     </div>
   );
