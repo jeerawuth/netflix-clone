@@ -134,7 +134,12 @@ export default function Navbar() {
           aria-label="เปิดเมนู"
           onClick={() => setShowMobileMenu(v => !v)}
         >
-          {showMobileMenu ? '✕' : '≡'}
+          <span style={{fontSize:'0.98rem',verticalAlign:'middle'}}>เรียกดู</span>
+          {showMobileMenu && (
+            <svg style={{marginLeft:6,verticalAlign:'middle'}} width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 8l4 4 4-4" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          )}
         </button>
         <div style={{display:'flex',alignItems:'center',flex:1,minWidth:0}}>
           <ul className={styles.menu + (showMobileMenu ? ' ' + styles.menuOpen : '')}>
