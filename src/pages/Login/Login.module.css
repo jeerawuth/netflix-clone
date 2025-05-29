@@ -1,0 +1,106 @@
+.container {
+  position: relative;
+  min-height: 100dvh;
+  width: 100vw;
+  overflow: hidden;
+}
+.bgMosaic {
+  position: fixed;
+  left: -30vw;
+  top: -30vh;
+  z-index: -2;
+  width: 160vw;
+  height: 160vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform: perspective(1200px) rotateY(-18deg);
+  transition: transform 0.7s cubic-bezier(.5,1.5,.5,1);
+}
+.bgRow {
+  display: flex;
+  flex-direction: row;
+  width: 160vw;
+  height: 13.34vh;
+  flex-wrap: nowrap;
+}
+.bgImg {
+  width: 13.34vw;
+  height: 13.34vh;
+  object-fit: cover;
+  filter: brightness(0.8);
+  opacity: 0.88;
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: block;
+}
+.bgOverlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.58);
+  z-index: 1;
+  pointer-events: none;
+}
+.centerWrap {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+}
+.form {
+  background: #222;
+  padding: 32px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.22);
+  z-index: 2;
+  position: relative;
+  color: #fff;
+}
+.heading {
+  color: #e50914;
+  margin-bottom: 24px;
+}
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  border: none;
+  font-size: 1rem;
+}
+.button {
+  width: 100%;
+  padding: 10px;
+  background: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.button:hover {
+  background: #b00612;
+}
+.error {
+  color: #e50914;
+  margin-bottom: 12px;
+  text-align: left;
+}
+.switchText {
+  color: #fff;
+  text-align: center;
+}
+.switchLink {
+  color: #e50914;
+  cursor: pointer;
+}

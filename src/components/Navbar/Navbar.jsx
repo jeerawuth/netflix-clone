@@ -207,7 +207,7 @@ export default function Navbar() {
                   type="button"
                   onClick={() => setShowProfileMenu(v => !v)}
                 >
-                  <img src="https://occ-0-2164-2163.1.nflxso.net/dnm/api/v6/WvGSDX7b2C3m5h0jK9bQ4FQd0kE/AAAABZ9Q2u8v4vFZk8QkWwX9Q3Uq3z1ZgJd4e3Y5Zc9Ff3h3U2c8O3Pq6Q4t6Q.png?r=1d9" alt="avatar" style={{width:38,height:38,borderRadius:'8px',objectFit:'cover',background:'#222',marginRight:0}} />
+                  <img src={localStorage.getItem('profileImage') || "https://occ-0-2164-2163.1.nflxso.net/dnm/api/v6/WvGSDX7b2C3m5h0jK9bQ4FQd0kE/AAAABZ9Q2u8v4vFZk8QkWwX9Q3Uq3z1ZgJd4e3Y5Zc9Ff3h3U2c8O3Pq6Q4t6Q.png?r=1d9"} alt="avatar" style={{width:38,height:38,borderRadius:'8px',objectFit:'cover',background:'#222',marginRight:0}} />
                   <span style={{fontSize:18, color:'#fff',verticalAlign:'middle',marginLeft:8}}>{showProfileMenu ? '▲' : '▼'}</span>
                 </button>
                 {showProfileMenu && (
@@ -216,17 +216,17 @@ export default function Navbar() {
                     style={{right:0, left:'auto', minWidth:220, background:'#181818', borderRadius:8, boxShadow:'0 4px 24px rgba(0,0,0,0.22)', padding:'8px 0', position:'absolute', top:'48px', zIndex:10, border:'none'}}
                   >
                     <div style={{display:'flex',alignItems:'center',padding:'10px 18px 6px 18px'}}>
-                      <img src="https://occ-0-2164-2163.1.nflxso.net/dnm/api/v6/WvGSDX7b2C3m5h0jK9bQ4FQd0kE/AAAABZ9Q2u8v4vFZk8QkWwX9Q3Uq3z1ZgJd4e3Y5Zc9Ff3h3U2c8O3Pq6Q4t6Q.png?r=1d9" alt="avatar" style={{width:32,height:32,borderRadius:'6px',objectFit:'cover',background:'#222',marginRight:10}} />
+                      <img src={localStorage.getItem('profileImage') || "https://occ-0-2164-2163.1.nflxso.net/dnm/api/v6/WvGSDX7b2C3m5h0jK9bQ4FQd0kE/AAAABZ9Q2u8v4vFZk8QkWwX9Q3Uq3z1ZgJd4e3Y5Zc9Ff3h3U2c8O3Pq6Q4t6Q.png?r=1d9"} alt="avatar" style={{width:32,height:32,borderRadius:'6px',objectFit:'cover',background:'#222',marginRight:10}} />
                       <span style={{color:'#fff',fontWeight:500,fontSize:'1.01rem'}}>{localStorage.getItem('profileName') || 'pui'}</span>
                     </div>
-                    <div style={{padding:'8px 18px', color:'#fff',display:'flex',alignItems:'center',gap:10}}><span style={{fontSize:20}}>✏️</span> จัดการโปรไฟล์</div>
+                    <div style={{padding:'8px 18px', color:'#fff',display:'flex',alignItems:'center',gap:10,cursor:'pointer'}} onClick={handleProfileMenuProfile}><span style={{fontSize:20}}>✏️</span> จัดการโปรไฟล์</div>
                     <div style={{padding:'8px 18px', color:'#fff',display:'flex',alignItems:'center',gap:10}}><span style={{fontSize:20}}>👤</span> บัญชี</div>
                     <div style={{padding:'8px 18px', color:'#fff',display:'flex',alignItems:'center',gap:10}}><span style={{fontSize:20}}>❓</span> ศูนย์ช่วยเหลือ</div>
                     <div style={{borderTop:'1px solid #333',margin:'6px 0 0 0'}} />
                     <div style={{padding:'10px 18px 8px 18px', color:'#fff',fontWeight:600,display:'flex',alignItems:'center',gap:10,cursor:'pointer'}} onClick={handleProfileMenuLogout}><span style={{fontSize:20,color:'#e50914'}}>⎋</span> ออกจากระบบของ Netflix</div>
                   </div>
                 )}
-              </> 
+              </>
             ) : (
               <button
                 className={styles.profile}

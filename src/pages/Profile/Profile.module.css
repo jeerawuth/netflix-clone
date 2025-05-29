@@ -1,0 +1,63 @@
+.profileContainer {
+  color: #fff;
+  background: #111;
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  padding: 0;
+}
+.heading {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  color: #e50914;
+}
+.email {
+  margin: 24px 0;
+  font-size: 1.1rem;
+}
+.logoutBtn {
+  padding: 10px 28px;
+  background: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.logoutBtn:hover {
+  background: #b00612;
+}
+
+.profileImageScroll {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 8px 0 16px 0;
+  margin-bottom: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: #e50914 #222;
+}
+.profileImageScroll::-webkit-scrollbar {
+  height: 8px;
+}
+.profileImageScroll::-webkit-scrollbar-thumb {
+  background: #e50914;
+  border-radius: 4px;
+}
+.profileImageOption {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid #444;
+  cursor: pointer;
+  background: #222;
+  transition: border 0.18s, opacity 0.18s;
+  opacity: 0.7;
+}
+.profileImageOption.selected {
+  border: 3px solid #e50914;
+  opacity: 1;
+}
